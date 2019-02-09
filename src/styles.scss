@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.header {
+  margin: 5px 0 10px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid lightgray;
+}
+
+.footer {
+  font-size: 12px;
+  border-top: 1px solid lightgray;
+}
