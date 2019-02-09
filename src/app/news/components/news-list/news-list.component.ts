@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Article } from '../../models/article.model';
 
 @Component({
   selector: 'fc-news-list',
@@ -6,11 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./news-list.component.css']
 })
 export class NewsListComponent implements OnInit {
-  @Input() articles: any;
+  @Input() articles: Article[];
+
+  @Output() onEdit = new EventEmitter<Article>();
+  @Output() onDelete = new EventEmitter<Article>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  editArticle(data: Article) {
+    this.onEdit.emit(data);
+  }
+
+  deleteArticle(data: Article) {
+    this.onDelete.emit(data);
+  }
 }
