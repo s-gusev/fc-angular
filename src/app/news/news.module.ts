@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsListComponent } from './components/news-list/news-list.component';
-import { NewsWidgetComponent } from './components/news-widget/news-widget.component';
+import { NewsPageComponent } from './components/news-page/news-page.component';
 import { NewsSelectorComponent } from './components/news-selector/news-selector.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NewsListItemComponent } from './components/news-list/news-list-item/news-list-item.component';
@@ -13,14 +13,14 @@ import { NewsListItemComponent } from './components/news-list/news-list-item/new
     FontAwesomeModule,
   ],
   declarations: [
-    NewsWidgetComponent,
+    NewsPageComponent,
     NewsSelectorComponent,
     NewsListComponent,
     NewsListItemComponent,
   ]
   ,
   exports: [
-    NewsWidgetComponent,
+    NewsPageComponent,
   ],
 })
 export class NewsModule { }
