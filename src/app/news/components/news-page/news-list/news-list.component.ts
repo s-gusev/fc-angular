@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Article } from '../../models/article.model';
+import { Article } from '../../../models/article.model';
 
 @Component({
   selector: 'fc-news-list',

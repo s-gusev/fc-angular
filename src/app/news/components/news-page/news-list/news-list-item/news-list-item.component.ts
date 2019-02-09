@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Article } from '../../../models/article.model';
+import { Article } from '../../../../models/article.model';
 
 @Component({
   selector: 'fc-news-list-item',
