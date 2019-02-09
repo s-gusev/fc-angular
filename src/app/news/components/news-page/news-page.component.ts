@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../../models/article.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fc-news-page',
@@ -52,17 +53,17 @@ export class NewsPageComponent implements OnInit {
       "content": "According to data scientist Matt Ahlborg, LocalBitcoins trading data concludes that Venezuela did more peer-to-peer Bitcoin trading in 2018 than Canada, India, and Australia combined. Venezuelan trading topped $235 million. For perspective, the United States … [+1237 chars]"
     }];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   addArticle() {
-    console.log('add new');
+    this.router.navigate(["news/add"]);
   }
 
   editArticle(data: Article) {
-    console.log('edit', data);
+    this.router.navigate(["news/edit", 1]);
   }
 
   deleteArticle(data: Article) {
