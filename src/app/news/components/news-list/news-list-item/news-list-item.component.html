@@ -1,0 +1,12 @@
+<div class="card mb-2">
+  <img class="card-img-top" height="150px" src="{{article.urlToImage}}">
+  <div class="card-body">
+    <h5 class="card-title">{{article.title.substring(0, 30)}}</h5>
+    <h6 class="card-subtitle mb-2">{{article.publishedAt | date}}</h6>
+    <p class="card-text">{{article.description.substring(0, 120)}}</p>
+  </div>
+  <div class="card-actions">
+    <fa-icon [icon]="faEdit" size="lg"></fa-icon>
+    <fa-icon [icon]="faTrash" size="lg"></fa-icon>
+  </div>
+</div>

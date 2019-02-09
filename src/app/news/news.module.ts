@@ -4,6 +4,7 @@ import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsWidgetComponent } from './components/news-widget/news-widget.component';
 import { NewsSelectorComponent } from './components/news-selector/news-selector.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NewsListItemComponent } from './components/news-list/news-list-item/news-list-item.component';
 
 
 @NgModule({
@@ -12,9 +13,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
   ],
   declarations: [
-    NewsListComponent,
     NewsWidgetComponent,
     NewsSelectorComponent,
+    NewsListComponent,
+    NewsListItemComponent,
   ]
   ,
   exports: [
