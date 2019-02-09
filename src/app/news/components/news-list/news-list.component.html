@@ -1,3 +1,17 @@
-<p>
-  news-list works!
-</p>
+<div class="row">
+  <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12" *ngFor="let article of articles;let i = index">
+    <div class="card mb-2">
+      <img class="card-img-top" height="150px" src="{{article.urlToImage}}">
+      <div class="card-body">
+        <h5 class="card-title">{{article.title.substring(0, 30)}}</h5>
+        <h6 class="card-subtitle mb-2">{{article.publishedAt | date}}</h6>
+        <p class="card-text">{{article.description.substring(0, 120)}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <button type="submit" class="btn btn-secondary btn-block">Want More News!</button>
+  </div>
+</div>
