@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'fc-news-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-list.component.css']
 })
 export class NewsListComponent implements OnInit {
+  faEdit = faEdit;
+  faTrash = faTrash;
 
   constructor() { }
 
