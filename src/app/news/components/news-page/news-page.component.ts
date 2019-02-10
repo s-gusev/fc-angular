@@ -3,6 +3,7 @@ import { Article } from '../../models/article.model';
 import { Router } from '@angular/router';
 import { NewsService } from '../../services/news.service';
 import { Observable } from 'rxjs';
+import { NewsSource } from '../../models/new-source.model';
 
 @Component({
   selector: 'fc-news-page',
@@ -17,7 +18,7 @@ export class NewsPageComponent implements OnInit {
     private newsService: NewsService,
   ) {
     this.articles = this.newsService.getArticles();
-   }
+  }
 
   ngOnInit() {
   }
@@ -32,5 +33,13 @@ export class NewsPageComponent implements OnInit {
 
   deleteArticle(data: Article) {
     console.log('delete', data);
+  }
+
+  performSearch(text: string) {
+    console.log('searchClicked', text)
+  }
+
+  performSourceChange(newsSource: NewsSource) {
+    console.log('sourceChanged', newsSource)
   }
 }
