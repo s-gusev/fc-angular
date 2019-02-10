@@ -10,6 +10,6 @@
 </div>
 <div class="row mt-4">
   <div class="col-10 offset-1">
-    <fc-news-list [articles]="articles" (onEdit)="editArticle($event)" (onDelete)="deleteArticle($event)"></fc-news-list>
+    <fc-news-list [articles]="articles | async" (onEdit)="editArticle($event)" (onDelete)="deleteArticle($event)"></fc-news-list>
   </div>
 </div>

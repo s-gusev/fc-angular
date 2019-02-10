@@ -19,7 +19,11 @@
     font-size: 12px;
     color: gray
   }
+}
 
+
+
+.card, .news-details {
   .card-actions {
     position: absolute;
     top: 0;
@@ -37,5 +41,12 @@
         color: black;
       }
     }
+  }
+}
+
+.news-details {
+  .card-actions
+  {
+    right: -60px;
   }
 }
