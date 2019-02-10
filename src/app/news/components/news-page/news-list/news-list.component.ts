@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 import { Article } from '../../../models/article.model';
 
 @Component({
   selector: 'fc-news-list',
   templateUrl: './news-list.component.html',
-  styleUrls: ['./news-list.component.css']
+  styleUrls: ['./news-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsListComponent implements OnInit {
   @Input() articles: Article[];

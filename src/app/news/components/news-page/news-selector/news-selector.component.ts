@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { NewsSource } from 'src/app/news/models/new-source.model';
 
 @Component({
   selector: 'fc-news-selector',
   templateUrl: './news-selector.component.html',
-  styleUrls: ['./news-selector.component.css']
+  styleUrls: ['./news-selector.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsSelectorComponent implements OnInit {
   @Output() onAdd = new EventEmitter();

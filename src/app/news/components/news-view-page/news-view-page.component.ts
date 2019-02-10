@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NewsService } from '../../services/news.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from '../../models/article.model';
@@ -8,7 +8,8 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'fc-news-view-page',
   templateUrl: './news-view-page.component.html',
-  styleUrls: ['./news-view-page.component.css']
+  styleUrls: ['./news-view-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsViewPageComponent implements OnInit {
   article: Article;

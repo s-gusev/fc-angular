@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NewsService } from '../../services/news.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from '../../models/article.model';
@@ -6,7 +6,8 @@ import { Article } from '../../models/article.model';
 @Component({
   selector: 'fc-news-edit-page',
   templateUrl: './news-edit-page.component.html',
-  styleUrls: ['./news-edit-page.component.css']
+  styleUrls: ['./news-edit-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsEditPageComponent implements OnInit {
   article: Article;

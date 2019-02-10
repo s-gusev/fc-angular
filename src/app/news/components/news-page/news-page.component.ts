@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Article } from '../../models/article.model';
 import { Router } from '@angular/router';
 import { NewsService } from '../../services/news.service';
@@ -8,7 +8,8 @@ import { NewsSource } from '../../models/new-source.model';
 @Component({
   selector: 'fc-news-page',
   templateUrl: './news-page.component.html',
-  styleUrls: ['./news-page.component.css']
+  styleUrls: ['./news-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsPageComponent implements OnInit {
   articles: Observable<Article[]>;
