@@ -4,6 +4,7 @@ import { PageNotFoundComponent } from './shared/components/page-not-found/page-n
 
 const routes: Routes = [
   { path: 'news', loadChildren: './news/news.module#NewsModule' },
+  { path: 'users', loadChildren: './users/users.module#UsersModule' },
   { path: '', redirectTo: '/news', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

@@ -40,3 +40,19 @@
     right: -60px;
   }
 }
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+
+  .fb-icon {
+    color: #3B5999;
+
+    :hover {
+      color: #3B59FF;
+      cursor: pointer;
+    }
+  }
+}
