@@ -30,4 +30,8 @@ export class NewsListComponent implements OnInit {
   moreClicked() {
     this.onShowMoreArticles.emit();
   }
+
+  trackByFn(index, item: Article) {
+    return item.id;
+  }
 }

@@ -1,4 +1,4 @@
-<div class="row" *ngFor="let article of articles;let i = index">
+<div class="row" *ngFor="let article of articles;trackBy: trackByFn">
   <div class="col">
     <fc-news-list-item [article]="article" (onEdit)="editArticle($event)" (onDelete)="deleteArticle($event)"></fc-news-list-item>
   </div>

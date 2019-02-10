@@ -40,14 +40,14 @@ export class NewsService {
   constructor() { }
 
   getArticles(): Observable<Article[]> {
-    const newArticles = this.mockArticles.slice();
+    const newArticles = this.mockArticles.map(a => Object.assign({}, a));
     newArticles.forEach(a => a.id = this.getNextId())
     this.localArticles = newArticles;
     return of(newArticles);
   }
 
   getMoreArticles(): Observable<Article[]> {
-    const newArticles = this.mockArticles.slice();
+    const newArticles = this.mockArticles.map(a => Object.assign({}, a));
     newArticles.forEach(a => a.id = this.getNextId())
     this.localArticles.push(...newArticles);
     return of(this.localArticles);
