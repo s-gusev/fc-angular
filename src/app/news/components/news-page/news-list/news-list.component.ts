@@ -11,6 +11,7 @@ export class NewsListComponent implements OnInit {
 
   @Output() onEdit = new EventEmitter<Article>();
   @Output() onDelete = new EventEmitter<Article>();
+  @Output() onShowMoreArticles = new EventEmitter();
 
   constructor() { }
 
@@ -23,5 +24,9 @@ export class NewsListComponent implements OnInit {
 
   deleteArticle(data: Article) {
     this.onDelete.emit(data);
+  }
+
+  moreClicked() {
+    this.onShowMoreArticles.emit();
   }
 }

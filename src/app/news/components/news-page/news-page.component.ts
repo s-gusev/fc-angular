@@ -44,4 +44,8 @@ export class NewsPageComponent implements OnInit {
     this.pageTitle = newsSource.name;
     console.log('sourceChanged', newsSource)
   }
+
+  showMoreArticles() {
+    this.articles = this.newsService.getMoreArticles();
+  }
 }
