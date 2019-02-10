@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Constants } from '../../constants';
 
 @Component({
   selector: 'fc-header',
@@ -7,6 +8,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
+  portalName: string = Constants.PortalName;
 
   constructor() { }
 

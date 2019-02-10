@@ -1,4 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Constants } from './shared/constants';
 
 @Component({
   selector: 'fc-root',
@@ -7,5 +9,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  title = 'fc-angular';
+  constructor(
+    private titleService: Title
+  ) {
+    this.titleService.setTitle(Constants.PortalName);
+  }
 }
