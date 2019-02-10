@@ -12,6 +12,7 @@ import { NewsSource } from '../../models/new-source.model';
 })
 export class NewsPageComponent implements OnInit {
   articles: Observable<Article[]>;
+  pageTitle: string;
 
   constructor(
     private router: Router,
@@ -40,6 +41,7 @@ export class NewsPageComponent implements OnInit {
   }
 
   performSourceChange(newsSource: NewsSource) {
+    this.pageTitle = newsSource.name;
     console.log('sourceChanged', newsSource)
   }
 }

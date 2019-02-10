@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-3">
     <select id="sourcesSelect" class="form-control form-control-sm" (change)="sourceChanged(this)">
-      <option value="">All Sources</option>
       <option *ngFor="let source of sources" value="{{source.id}}">{{source.name}}</option>
     </select>
   </div>

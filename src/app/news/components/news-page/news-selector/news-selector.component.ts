@@ -12,12 +12,16 @@ export class NewsSelectorComponent implements OnInit {
   @Output() onSearchClicked = new EventEmitter<string>();
 
   sources: NewsSource[] = [{
+    "id": "",
+    "name": "All Sources",
+  },
+  {
     "id": "abc-news",
     "name": "ABC News",
   },
   {
     "id": "associated-press",
-    "name": "Associated Press",
+    "name": "Associated Press News",
   },
   {
     "id": "abc-news",
@@ -25,7 +29,7 @@ export class NewsSelectorComponent implements OnInit {
   },
   {
     "id": "cnn",
-    "name": "CNN",
+    "name": "CNN News",
   },
   {
     "id": "fox-news",
@@ -44,6 +48,7 @@ export class NewsSelectorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.onSourceChanged.emit(this.sources[0]);
   }
 
   addClicked() {
