@@ -35,12 +35,18 @@ export class NewsPageComponent implements OnInit {
     this.router.navigate(["news/add"]);
   }
 
-  editArticle(data: Article) {
-    this.router.navigate(["news/edit", 1]);
+  editArticle(article: Article) {
+    this.router.navigate(["news/edit", article._id]);
   }
 
-  deleteArticle(data: Article) {
-    console.log('delete', data);
+  deleteArticle(article: Article) {
+    this.newsService.deleteArticle(article._id).subscribe(
+      () => {
+        this.articles.splice(this.articles.indexOf(article), 1);
+        this.articles = [].concat(this.articles);
+        this.cdr.markForCheck();
+      }
+    )
   }
 
   performSearch(text: string) {

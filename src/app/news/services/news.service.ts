@@ -25,10 +25,7 @@ export class NewsService {
   }
 
   deleteArticle(id: string) {
-    return this.http.delete('http://localhost:3000/news/' + id, this.authService.getAuthHeders())
-      .pipe(
-        tap(result => console.log('api_news', result))
-      );
+    return this.http.delete('http://localhost:3000/news/' + id, this.authService.getAuthHeders());
   }
 
 

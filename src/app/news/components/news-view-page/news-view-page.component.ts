@@ -5,6 +5,7 @@ import { Article } from '../../models/article.model';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { LoginStateDependentComponent } from '../../../shared/components/login-state-depended-component';
 import { AuthService } from '../../../shared/services/auth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'fc-news-view-page',
@@ -20,6 +21,7 @@ export class NewsViewPageComponent extends LoginStateDependentComponent implemen
   constructor(
     private newsService: NewsService,
     private route: ActivatedRoute,
+    private location: Location,
     authService: AuthService,
     router: Router,
     cdr: ChangeDetectorRef,
@@ -38,5 +40,13 @@ export class NewsViewPageComponent extends LoginStateDependentComponent implemen
         this.router.navigateByUrl('/pagenotfound');
       }
     });
+  }
+
+  deleteClicked() {
+    this.newsService.deleteArticle(this.article._id).subscribe(
+      () => {
+        this.location.back();
+      }
+    )
   }
 }
