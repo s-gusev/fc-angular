@@ -8,7 +8,8 @@ import { Article } from '../../../models/article.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsListComponent implements OnInit {
-  @Input() articles: Article[];
+  @Input() articles!: Article[];
+  @Input() hasMoreArticles!: boolean;
 
   @Output() onEdit = new EventEmitter<Article>();
   @Output() onDelete = new EventEmitter<Article>();
@@ -32,6 +33,6 @@ export class NewsListComponent implements OnInit {
   }
 
   trackByFn(index, item: Article) {
-    return item.id;
+    return item._id;
   }
 }

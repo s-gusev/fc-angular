@@ -1,10 +1,21 @@
-<div class="row" *ngFor="let article of articles;trackBy: trackByFn">
-  <div class="col">
-    <fc-news-list-item [article]="article" (onEdit)="editArticle($event)" (onDelete)="deleteArticle($event)"></fc-news-list-item>
+<ng-container *ngIf="articles && articles.length;else noResults">
+  <div class="row" *ngFor="let article of articles;trackBy: trackByFn">
+    <div class="col">
+      <fc-news-list-item [article]="article" (onEdit)="editArticle($event)" (onDelete)="deleteArticle($event)">
+      </fc-news-list-item>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col">
-    <button type="button" class="btn btn-secondary btn-block" (click)="moreClicked()">Want More News!</button>
+  <div class="row" *ngIf="hasMoreArticles">
+    <div class="col">
+      <button type="button" class="btn btn-secondary btn-block" (click)="moreClicked()">Want More News!</button>
+    </div>
   </div>
-</div>
+</ng-container>
+
+<ng-template #noResults>
+  <div class="row">
+    <div class="col">
+      No Results. Please change search criteria.
+    </div>
+  </div>
+</ng-template>

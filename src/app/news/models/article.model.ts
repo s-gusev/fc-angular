@@ -1,9 +1,13 @@
+import { NewsSource } from "./new-source.model";
+
 export interface Article {
-  id?: string,
-  source: string,
-  title: string,
-  content: string,
-  url: string,
-  urlToImage: string,
-  publishedAt: string,
+    _id?: string,
+    source: NewsSource,
+    author: string,
+    title: string,
+    description: string,
+    url: string,
+    urlToImage: string,
+    content: string,
+    publishedAt: string,
 }

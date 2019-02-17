@@ -12,10 +12,7 @@ export class NewsSelectorComponent implements OnInit {
   @Output() onSourceChanged = new EventEmitter<NewsSource>();
   @Output() onSearchClicked = new EventEmitter<string>();
 
-  sources: NewsSource[] = [{
-    "id": "",
-    "name": "All Sources",
-  },
+  sources: NewsSource[] = [
   {
     "id": "abc-news",
     "name": "ABC News",

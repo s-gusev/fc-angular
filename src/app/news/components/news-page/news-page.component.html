@@ -11,8 +11,8 @@
 </div>
 <div class="row mt-4">
   <div class="col-10 offset-1">
-    <fc-news-list [articles]="articles | async" (onEdit)="editArticle($event)" (onDelete)="deleteArticle($event)"
-      (onShowMoreArticles)="showMoreArticles()">
+    <fc-news-list [articles]="articles" [hasMoreArticles]="hasMoreArticles" (onEdit)="editArticle($event)" (onDelete)="deleteArticle($event)"
+      (onShowMoreArticles)="loadMoreArticles()">
     </fc-news-list>
   </div>
 </div>
