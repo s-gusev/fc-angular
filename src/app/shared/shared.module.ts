@@ -7,6 +7,7 @@ import { LoginLogoutComponent } from './components/login-logout/login-logout.com
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { LoggedInGuard } from './guards/loggedin.guard';
 
 @NgModule({
   imports: [
@@ -32,5 +33,8 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     HeaderComponent,
     TruncatePipe,
   ],
+  providers: [
+    LoggedInGuard,
+  ]
 })
 export class SharedModule { }
