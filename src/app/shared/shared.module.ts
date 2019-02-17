@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { LoginLogoutComponent } from './components/login-logout/login-logout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 @NgModule({
   imports: [
@@ -20,6 +20,7 @@ import { BrowserModule } from '@angular/platform-browser';
     FooterComponent,
     HeaderComponent,
     LoginLogoutComponent,
+    TruncatePipe,
   ],
   exports: [
     CommonModule,
@@ -28,7 +29,8 @@ import { BrowserModule } from '@angular/platform-browser';
     FormsModule,
     ReactiveFormsModule,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    TruncatePipe,
   ],
 })
 export class SharedModule { }
