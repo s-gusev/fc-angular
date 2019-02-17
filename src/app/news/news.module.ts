@@ -8,11 +8,13 @@ import { NewsListItemComponent } from './components/news-page/news-list/news-lis
 import { NewsRoutingModule } from './news-routing.module';
 import { NewsEditPageComponent } from './components/news-edit-page/news-edit-page.component';
 import { NewsViewPageComponent } from './components/news-view-page/news-view-page.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     FontAwesomeModule,
     NewsRoutingModule,
   ],

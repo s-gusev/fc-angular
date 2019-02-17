@@ -64,7 +64,6 @@ export class NewsPageComponent implements OnInit {
   loadMoreArticles() {
     this.newsService.getArticles(this.sourceId || '', this.searchText || '', this.pageIndex++).subscribe(
       (result) => {
-        console.log('loaded articles', result);
         this.articles = this.articles.concat(result);
         this.hasMoreArticles = result.length === Constants.articlesPageSize;
         this.cdr.markForCheck();

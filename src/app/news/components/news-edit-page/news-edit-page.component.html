@@ -3,4 +3,56 @@
     <h2 class="text-center"> {{pageTitle}} </h2>
   </div>
 </div>
-Page Under Construction. Forms are in Part2.
+<form class="form-edit" [formGroup]="editForm" (submit)="formSubmit()">
+  <div class="row">
+    <div class="col-4 offset-2">
+      <label class="mt-2">Title</label>
+      <input type="text" id="title" formControlName="title" class="form-control" required>
+      <div class="alert alert-danger"
+        *ngIf="editForm.controls.title.touched && editForm.controls.title.errors?.required">
+        Title is required.
+      </div>
+      <label class="mt-2">Description</label>
+      <textarea formControlName="description" class="form-control" required rows="2"></textarea>
+      <div class="alert alert-danger"
+        *ngIf="editForm.controls.description.touched && editForm.controls.description.errors?.required">
+        Description is required.
+      </div>
+      <label class="mt-2">Content</label>
+      <textarea formControlName="content" class="form-control" required rows="4"></textarea>
+      <div class="alert alert-danger"
+        *ngIf="editForm.controls.content.touched && editForm.controls.content.errors?.required">
+        Content is required.
+      </div>
+    </div>
+    <div class="col-4">
+      <label class="mt-2">Image URL</label>
+      <input type="text" formControlName="urlToImage" class="form-control" required>
+      <div class="alert alert-danger"
+        *ngIf="editForm.controls.urlToImage.touched && editForm.controls.urlToImage.errors?.required">
+        Image URL is required.
+      </div>
+      <label class="mt-2">Date</label>
+      <input type="text" formControlName="publishedAt" class="form-control" readonly>
+      <label class="mt-2">Author</label>
+      <input type="text" formControlName="author" class="form-control" required>
+      <div class="alert alert-danger"
+        *ngIf="editForm.controls.author.touched && editForm.controls.author.errors?.required">
+        Author is required.
+      </div>
+      <label class="mt-2">Source URL</label>
+      <input type="text" formControlName="url" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="editForm.controls.url.touched && editForm.controls.url.errors?.required">
+        Source URL is required.
+      </div>
+      <div class="row mt-3">
+        <div class="col-6">
+          <button class="btn btn-primary btn-block" type="submit" [disabled]='!editForm.valid'>Submit</button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-secondary btn-block" (click)="cancel()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

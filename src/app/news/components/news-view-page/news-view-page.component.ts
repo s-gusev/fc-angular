@@ -49,4 +49,8 @@ export class NewsViewPageComponent extends LoginStateDependentComponent implemen
       }
     )
   }
+
+  editClicked() {
+    this.router.navigate(["news/edit", this.article._id]);
+  }
 }
