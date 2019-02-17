@@ -1,1 +1,7 @@
-<a [routerLink]="'/users/login'">Log In</a>
+<ng-container *ngIf="!isLoggedIn;else welcome">
+  <a [routerLink]="'/users/login'">Log In</a>
+</ng-container>
+
+<ng-template #welcome>
+  Welcome {{userName}}, <a href="#" (click)="logout()">Log Out</a>
+</ng-template>

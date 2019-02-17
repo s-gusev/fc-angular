@@ -4,11 +4,17 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { LoginLogoutComponent } from './components/login-logout/login-logout.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     FooterComponent,
@@ -16,6 +22,11 @@ import { LoginLogoutComponent } from './components/login-logout/login-logout.com
     LoginLogoutComponent,
   ],
   exports: [
+    CommonModule,
+    RouterModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     FooterComponent,
     HeaderComponent
   ],

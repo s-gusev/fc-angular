@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
+import { AuthService } from '../../shared/services/auth.service';
+import { NewsService } from '../../news/services/news.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fc-login-page',
@@ -8,13 +12,33 @@ import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 })
 export class LoginPageComponent implements OnInit {
   faFacebookSquare = faFacebookSquare;
+  errorMsg?: string;
 
-  constructor() { }
+  loginForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
+
+  constructor(
+    private readonly authService: AuthService,
+    private readonly cdr: ChangeDetectorRef,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
 
   formSubmit() {
-    console.log('form submit');
+    this.errorMsg = undefined;
+    this.authService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
+      .subscribe(
+        (result) => {
+          this.router.navigateByUrl('/');
+        },
+        (error) => {
+          this.errorMsg = error.error.message;
+          this.cdr.markForCheck();
+        }
+      );
   }
 }
