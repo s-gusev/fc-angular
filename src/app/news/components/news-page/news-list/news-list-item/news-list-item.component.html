@@ -9,7 +9,7 @@
     <h6 class="card-subtitle mb-2">{{article.publishedAt | date}}</h6>
     <p class="card-text">{{article.description.substring(0, 240)}}</p>
   </div>
-  <div class="card-actions">
+  <div class="card-actions" *ngIf="isLoggedIn && article.source.id === 'front-camp-news'">
     <fa-icon [icon]="faEdit" size="lg" (click)="editClicked()"></fa-icon>
     <fa-icon [icon]="faTrash" size="lg" (click)="deleteClicked()"></fa-icon>
   </div>

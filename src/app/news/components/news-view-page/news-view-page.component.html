@@ -1,22 +1,24 @@
-<div class="row news-page-title">
-  <div class="col">
-    <h2 class="text-center">{{article.source.name}}</h2>
-  </div>
-</div>
-<div class="row mt-4">
-  <div class="col-10 offset-1">
-    <div class="news-details">
-      <h5 class="card-title">{{article.title}}</h5>
-      <h6 class="card-subtitle mb-2">{{article.publishedAt | date}}</h6>
-      <img src="{{article.urlToImage}}" class="img-fluid mx-auto d-block">
-      <p class="card-text">{{article.content || article.description}}</p>
-
-      <div class="card-actions">
-        <fa-icon [icon]="faEdit" size="lg" (click)="editClicked()"></fa-icon>
-        <fa-icon [icon]="faTrash" size="lg" (click)="deleteClicked()"></fa-icon>
-      </div>
-      <a [href]="article.url" target="blank">Read on source</a>
+<ng-container *ngIf="article">
+  <div class="row news-page-title">
+    <div class="col">
+      <h2 class="text-center">{{article.source.name}}</h2>
     </div>
-
   </div>
-</div>
+  <div class="row mt-4">
+    <div class="col-10 offset-1">
+      <div class="news-details">
+        <h5 class="card-title">{{article.title}}</h5>
+        <h6 class="card-subtitle mb-2">{{article.publishedAt | date}}</h6>
+        <img src="{{article.urlToImage}}" class="img-fluid mx-auto d-block">
+        <p class="card-text">{{article.content || article.description}}</p>
+
+        <div class="card-actions" *ngIf="isLoggedIn && article.source.id === 'front-camp-news'">
+          <fa-icon [icon]="faEdit" size="lg" (click)="editClicked()"></fa-icon>
+          <fa-icon [icon]="faTrash" size="lg" (click)="deleteClicked()"></fa-icon>
+        </div>
+        <a [href]="article.url" target="blank">Read on source</a>
+      </div>
+
+    </div>
+  </div>
+</ng-container>

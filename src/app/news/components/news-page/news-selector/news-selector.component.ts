@@ -13,34 +13,35 @@ export class NewsSelectorComponent implements OnInit {
   @Output() onSearchClicked = new EventEmitter<string>();
 
   sources: NewsSource[] = [
-  {
-    "id": "abc-news",
-    "name": "ABC News",
-  },
-  {
-    "id": "associated-press",
-    "name": "Associated Press News",
-  },
-  {
-    "id": "abc-news",
-    "name": "ABC News",
-  },
-  {
-    "id": "cnn",
-    "name": "CNN News",
-  },
-  {
-    "id": "fox-news",
-    "name": "Fox News",
-  },
-  {
-    "id": "google-news",
-    "name": "Google News",
-  },
-  {
-    "id": "front-camp-news",
-    "name": "Front Camp Own News",
-  },
+    {
+      "id": "front-camp-news",
+      "name": "Front Camp Own News",
+    },
+    {
+      "id": "abc-news",
+      "name": "ABC News",
+    },
+    {
+      "id": "associated-press",
+      "name": "Associated Press News",
+    },
+    {
+      "id": "abc-news",
+      "name": "ABC News",
+    },
+    {
+      "id": "cnn",
+      "name": "CNN News",
+    },
+    {
+      "id": "fox-news",
+      "name": "Fox News",
+    },
+    {
+      "id": "google-news",
+      "name": "Google News",
+    },
+
   ];
 
   constructor() { }

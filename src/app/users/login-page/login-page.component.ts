@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import { AuthService } from '../../shared/services/auth.service';
-import { NewsService } from '../../news/services/news.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'fc-login-page',
@@ -23,6 +23,7 @@ export class LoginPageComponent implements OnInit {
     private readonly authService: AuthService,
     private readonly cdr: ChangeDetectorRef,
     private router: Router,
+    private location: Location,
   ) { }
 
   ngOnInit() {
@@ -33,7 +34,7 @@ export class LoginPageComponent implements OnInit {
     this.authService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
       .subscribe(
         (result) => {
-          this.router.navigateByUrl('/');
+          this.location.back();
         },
         (error) => {
           this.errorMsg = error.error.message;

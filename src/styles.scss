@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 .header {
   margin: 5px 0 10px 0;
   padding-bottom: 5px;
@@ -55,4 +56,9 @@
       cursor: pointer;
     }
   }
+}
+
+a:not([href]):not([tabindex]) {
+  color: #007bff !important;
+  cursor: pointer;
 }
