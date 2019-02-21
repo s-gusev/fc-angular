@@ -24,8 +24,7 @@ export abstract class LoginStateDependentComponent implements OnInit, OnDestroy 
         this.isLoggedIn = this.authService.isLoggedIn();
         this.userName = this.authService.getUserName();
         this.cdr.markForCheck();
-      }
-    )
+      });
   }
 
   ngOnDestroy() {
