@@ -12,36 +12,14 @@ import { NewsService } from '../../services/news.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { of } from 'rxjs';
+import { MockAuthService } from 'src/app/testing/news/mock-auth-service';
+import { MockActivatedRoute } from 'src/app/testing/news/mock-activated-route';
 
 describe('NewsViewPageComponent', () => {
   let component: NewsViewPageComponent;
   let fixture: ComponentFixture<NewsViewPageComponent>;
   const newsServiceSpy = jasmine.createSpyObj('NewsService', ['getById', 'deleteArticle']);
   const locationSpy = jasmine.createSpyObj('Location', ['back']);
-  class MockActivatedRoute {
-    snapshot = {
-      paramMap: { get(name) { return 1; } },
-      routeConfig: { children: { filter: () => { } } }
-    };
-  }
-
-  class MockAuthService {
-    private username?: string;
-
-    loginStateChanged = new EventEmitter();
-
-    isLoggedIn(): boolean {
-      return !!this.username;
-    }
-
-    getUserName(): string {
-      return this.username;
-    }
-
-    login(username?: string) {
-      this.username = username;
-    }
-  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
