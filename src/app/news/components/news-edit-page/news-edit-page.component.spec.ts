@@ -1,3 +1,4 @@
+import { TestArticle } from 'src/app/testing/mock-article';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -43,7 +44,7 @@ describe('NewsEditPageComponent', () => {
   }));
 
   beforeEach(() => {
-    newsServiceSpy.getById.and.returnValue(of({ source: { id: 'abc-news', name: 'news soure' } }));
+    newsServiceSpy.getById.and.returnValue(of(TestArticle));
     fixture = TestBed.createComponent(NewsEditPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

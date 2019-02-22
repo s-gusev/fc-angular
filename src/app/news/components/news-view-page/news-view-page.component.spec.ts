@@ -14,6 +14,7 @@ import { Location } from '@angular/common';
 import { of } from 'rxjs';
 import { MockAuthService } from 'src/app/testing/news/mock-auth-service';
 import { MockActivatedRoute } from 'src/app/testing/news/mock-activated-route';
+import { TestArticle } from 'src/app/testing/mock-article';
 
 describe('NewsViewPageComponent', () => {
   let component: NewsViewPageComponent;
@@ -41,7 +42,7 @@ describe('NewsViewPageComponent', () => {
   }));
 
   beforeEach(() => {
-    newsServiceSpy.getById.and.returnValue(of({ source: { id: 'abc-news', name: 'news soure' } }));
+    newsServiceSpy.getById.and.returnValue(of(TestArticle));
     fixture = TestBed.createComponent(NewsViewPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
