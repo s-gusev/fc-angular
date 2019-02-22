@@ -32,11 +32,11 @@ export class NewsPageComponent implements OnInit {
   }
 
   addArticle() {
-    this.router.navigate(["news/add"]);
+    this.router.navigate(['news/add']);
   }
 
   editArticle(article: Article) {
-    this.router.navigate(["news/edit", article._id]);
+    this.router.navigate(['news/edit', article._id]);
   }
 
   deleteArticle(article: Article) {
@@ -46,7 +46,7 @@ export class NewsPageComponent implements OnInit {
         this.articles = [].concat(this.articles);
         this.cdr.markForCheck();
       }
-    )
+    );
   }
 
   performSearch(text: string) {
@@ -67,8 +67,7 @@ export class NewsPageComponent implements OnInit {
         this.articles = this.articles.concat(result);
         this.hasMoreArticles = result.length === Constants.articlesPageSize;
         this.cdr.markForCheck();
-      }
-    )
+      });
   }
 
   private loadArticles() {
