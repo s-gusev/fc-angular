@@ -31,7 +31,7 @@ export class NewsViewPageComponent extends LoginStateDependentComponent implemen
 
   ngOnInit() {
     super.ngOnInit();
-    const id = this.route.snapshot.paramMap.get("id");
+    const id = this.route.snapshot.paramMap.get('id');
     this.newsService.getById(id).subscribe(article => {
       if (article) {
         this.article = article;
@@ -46,11 +46,10 @@ export class NewsViewPageComponent extends LoginStateDependentComponent implemen
     this.newsService.deleteArticle(this.article._id).subscribe(
       () => {
         this.location.back();
-      }
-    )
+      });
   }
 
   editClicked() {
-    this.router.navigate(["news/edit", this.article._id]);
+    this.router.navigate(['news/edit', this.article._id]);
   }
 }
