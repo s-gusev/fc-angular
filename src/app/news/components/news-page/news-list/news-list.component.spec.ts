@@ -1,9 +1,15 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { DebugElement, Component, Input } from '@angular/core';
 
 import { NewsListComponent } from './news-list.component';
+import { Article } from 'src/app/news/models/article.model';
+
+@Component({ selector: 'fc-news-list-item', template: '' })
+class NewsListItemStubComponent {
+  @Input() article!: Article;
+}
 
 describe('NewsListComponent', () => {
   let component: NewsListComponent;
@@ -11,9 +17,9 @@ describe('NewsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsListComponent ]
+      declarations: [NewsListComponent, NewsListItemStubComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
