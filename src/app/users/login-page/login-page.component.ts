@@ -3,7 +3,7 @@ import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import { AuthService } from '../../shared/services/auth.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'fc-login-page',
@@ -22,7 +22,6 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private readonly authService: AuthService,
     private readonly cdr: ChangeDetectorRef,
-    private router: Router,
     private location: Location,
   ) { }
 

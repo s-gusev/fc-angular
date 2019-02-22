@@ -10,6 +10,6 @@
   <input type="password" id="inputPassword" class="form-control" placeholder="Password" required
     formControlName="password">
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  <p *ngIf="errorMsg">{{errorMsg}}</p>
+  <p id="errMessage" *ngIf="errorMsg">{{errorMsg}}</p>
   <a class="mt-4" [routerLink]="'../signup'">sign up</a>
 </form>
