@@ -19,7 +19,7 @@ describe('LoginLogoutComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [LoginLogoutComponent, RouterLinkDirectiveStub ],
+      declarations: [LoginLogoutComponent, RouterLinkDirectiveStub],
       providers: [
         { provide: AuthService, useClass: MockAuthService },
         { provide: Location, useValue: locationSpy },
@@ -37,5 +37,12 @@ describe('LoginLogoutComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should clear auth state on logout', () => {
+    component.authService.login('username', 'pass');
+    expect(component.authService.isLoggedIn()).toBeTruthy();
+    component.logout();
+    expect(component.authService.isLoggedIn()).toBeFalsy();
   });
 });

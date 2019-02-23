@@ -50,4 +50,15 @@ describe('NewsListItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit event on editClicked', (done: DoneFn) => {
+    component.onEdit.subscribe(() => done());
+    component.editClicked();
+  });
+
+  it('should emit event on deleteClicked', (done: DoneFn) => {
+    component.onDelete.subscribe(() => done());
+    component.deleteClicked();
+  });
+
 });

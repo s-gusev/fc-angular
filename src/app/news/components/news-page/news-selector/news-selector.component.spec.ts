@@ -11,9 +11,9 @@ describe('NewsSelectorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsSelectorComponent ]
+      declarations: [NewsSelectorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,5 +24,20 @@ describe('NewsSelectorComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit event on source chnage', (done: DoneFn) => {
+    component.onSourceChanged.subscribe(() => done());
+    component.sourceChanged();
+  });
+
+  it('should emit event on search', (done: DoneFn) => {
+    component.onSearchClicked.subscribe(() => done());
+    component.searchClicked();
+  });
+
+  it('should emit event on add new', (done: DoneFn) => {
+    component.onAdd.subscribe(() => done());
+    component.addClicked();
   });
 });

@@ -9,7 +9,6 @@ import { RouterLinkDirectiveStub } from '../../testing/router-link-directive-stu
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
-import { newEvent } from '../../testing/utils';
 import { of, throwError } from 'rxjs';
 
 
@@ -66,8 +65,8 @@ describe('LoginPageComponent', () => {
     userNameInput.value = 'test';
     userNamePassword.value = 'invalid-pass';
 
-    userNameInput.dispatchEvent(newEvent('input'));
-    userNamePassword.dispatchEvent(newEvent('input'));
+    userNameInput.dispatchEvent(new Event('input'));
+    userNamePassword.dispatchEvent(new Event('input'));
     authServiceSpy.login.and.returnValue(throwError({ error: { message: 'invalid user/login' } }));
 
     component.formSubmit();
@@ -85,8 +84,8 @@ describe('LoginPageComponent', () => {
     userNameInput.value = 'test';
     userNamePassword.value = 'invalid-pass';
 
-    userNameInput.dispatchEvent(newEvent('input'));
-    userNamePassword.dispatchEvent(newEvent('input'));
+    userNameInput.dispatchEvent(new Event('input'));
+    userNamePassword.dispatchEvent(new Event('input'));
 
     const backClicked = new EventEmitter();
     backClicked.asObservable().subscribe(() => { done(); });

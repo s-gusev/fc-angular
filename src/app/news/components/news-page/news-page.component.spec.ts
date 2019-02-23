@@ -1,3 +1,4 @@
+import { TestArticle } from './../../../testing/mock-article';
 import { Input } from '@angular/core';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -8,6 +9,7 @@ import { NewsPageComponent } from './news-page.component';
 import { NewsService } from '../../services/news.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Article } from '../../models/article.model';
+import { of } from 'rxjs';
 
 
 @Component({ selector: 'fc-news-selector', template: '' })
@@ -22,7 +24,7 @@ class NewsListStubComponent {
 describe('NewsPageComponent', () => {
   let component: NewsPageComponent;
   let fixture: ComponentFixture<NewsPageComponent>;
-  const newsServiceSpy = jasmine.createSpyObj('NewsService', ['getById', 'deleteArticle']);
+  const newsServiceSpy = jasmine.createSpyObj('NewsService', ['getArticles', 'deleteArticle']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -47,5 +49,21 @@ describe('NewsPageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('performSearch should call external service', (done: DoneFn) => {
+    newsServiceSpy.getArticles.and.callFake(() => { done(); return of([]); });
+    component.performSearch('text');
+  });
+
+  it('performSearch should call external service', (done: DoneFn) => {
+    newsServiceSpy.getArticles.and.callFake(() => { done(); return of([]); });
+    component.performSourceChange({ id: 'source_id', name: 'source name' });
+  });
+
+  it('delete should call external service', (done: DoneFn) => {
+    component.articles = [TestArticle];
+    newsServiceSpy.deleteArticle.and.callFake(() => { done(); return of(true); });
+    component.deleteArticle(TestArticle);
   });
 });

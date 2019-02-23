@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { DebugElement, EventEmitter } from '@angular/core';
 
 import { NewsEditPageComponent } from './news-edit-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -40,7 +40,7 @@ describe('NewsEditPageComponent', () => {
         { provide: ActivatedRoute, useClass: MockActivatedRoute }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -52,5 +52,10 @@ describe('NewsEditPageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should go back on cancel', (done: DoneFn) => {
+    locationSpy.back.and.callFake(() => done());
+    component.cancel();
   });
 });

@@ -21,7 +21,7 @@ export class NewsService {
     return this.http.get<Article>(`http://localhost:3000/news/${id}`);
   }
 
-  getArticles(source: string, text: string, pageIndex: number = 0): Observable<Article[]> {
+  getArticles(source: string, text: string, pageIndex: number): Observable<Article[]> {
     return this.http.get<Article[]>(`http://localhost:3000/news/${encodeURI(source)}/${encodeURI(text)}/${this.pageSize}/${pageIndex}`);
   }
 

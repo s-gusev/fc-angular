@@ -13,7 +13,11 @@ export class MockAuthService {
     return this.username;
   }
 
-  login(username?: string) {
+  login(username: string) {
     this.username = username;
+  }
+
+  logout() {
+    this.username = null;
   }
 }
