@@ -1,3 +1,5 @@
+/// <reference path='../../testing/custom-matchers.d.ts'/>
+
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './../../shared/services/auth.service';
 /* tslint:disable:no-unused-variable */
@@ -5,11 +7,13 @@ import { AuthService } from './../../shared/services/auth.service';
 import { TestBed, async, inject } from '@angular/core/testing';
 import { NewsService } from './news.service';
 import { TestArticle } from 'src/app/testing/mock-article';
+import { startWithMatcher } from 'src/app/testing/custom-matchers';
 
 describe('Service: News', () => {
   const httpSpyService = jasmine.createSpyObj('HttpClient', ['get', 'post', 'delete']);
 
   beforeEach(() => {
+    jasmine.addMatchers(startWithMatcher);
     TestBed.configureTestingModule({
       providers: [
         NewsService,
@@ -26,7 +30,7 @@ describe('Service: News', () => {
   it('should call external service on getById', (done: DoneFn) => {
     inject([NewsService], (service: NewsService) => {
       httpSpyService.get.and.callFake((args) => {
-        expect(args).toContain('http://localhost:3000/news');
+        expect(args).toStartWith('http://localhost:3000/news');
         done();
       });
       service.getById('id');
@@ -36,7 +40,7 @@ describe('Service: News', () => {
   it('should call external service on getArticles', (done: DoneFn) => {
     inject([NewsService], (service: NewsService) => {
       httpSpyService.get.and.callFake((args) => {
-        expect(args).toContain('http://localhost:3000/news');
+        expect(args).toStartWith('http://localhost:3000/news');
         done();
       });
       service.getArticles('sourceid', '', 1);
@@ -46,7 +50,7 @@ describe('Service: News', () => {
   it('should call external service on deleteArticle', (done: DoneFn) => {
     inject([NewsService], (service: NewsService) => {
       httpSpyService.delete.and.callFake((args) => {
-        expect(args).toContain('http://localhost:3000/news');
+        expect(args).toStartWith('http://localhost:3000/news');
         done();
       });
       service.deleteArticle('id');
@@ -56,7 +60,7 @@ describe('Service: News', () => {
   it('should call external service on upsert', (done: DoneFn) => {
     inject([NewsService], (service: NewsService) => {
       httpSpyService.post.and.callFake((args) => {
-        expect(args).toContain('http://localhost:3000/news');
+        expect(args).toStartWith('http://localhost:3000/news');
         done();
       });
       service.upsert(TestArticle);
