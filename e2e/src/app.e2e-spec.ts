@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to fc-angular!');
+    expect(page.getTitleText()).toEqual('News from: Front Camp Own News');
   });
 
   afterEach(async () => {
